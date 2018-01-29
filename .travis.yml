@@ -32,3 +32,12 @@ script: >
     --hostname b${TRAVIS_BUILD_NUMBER}.nethserver.org
     --volume $PWD:/srv/makerpms/src:ro ${DOCKER_IMAGE} makerpms-travis -s *.spec
     && docker commit makerpms nethserver/build
+
+deploy:
+  provider: releases
+  api_key:
+    secure: BysonC6M7Fb89OqOIhLMbJOBbDb+CVXaN2MtgzLfMFxtDMCuY+jX1RffzxuvWKopkdSuE9WjHcuCXrlOiIBdMbY/zmOF8Qmnkm9/tty2iPlW9BA9qXhA2/H+C7IT+UmgKL7AEh0YlounufjzEwyJQ1fNUWskaplxO0/DMbVv5MqinTzlYhZrArBnvsuwT470SI+6qyn5lNLc7B0zTIgYliXjftm5dra1wg7l5+yR2EJF3SjpstDpG5X8Ai25SOZ1QFLX6jwBP6iHMGbmf2iLwt8OK1aOvSskZlcRKDbqWWfu7/qMnmrDEqiTC5/aZE21HPNbV/9+PQ9Sh2QrjEiUuszjBbz/FU81w2b239kr38r/B1ho7txCSd53dKijC8r86S6GixDKNmc7+tWPsPxA8drxpIyA4MON3Dc8RTT8treDA7Gviija6yFpqX1O0LZ9EnU7OmOE/UcRryI6FvHzoexllZ9Mhj4kNsXzJOsXThnvzRGzPJBxRbAI+bIc+5RTFMeBi+Zqlr2usJTim6thah4TxldDP1ZuIIP0ZKlSjkCRFO2vt03+URFJBu5CFW2qDwJ0e9eRUJUBvJrV1JmICOYRM609rIWQLcfsW9ZN8jp/AE3VAY+70qsi7iyC9ao2QH9Vp2sd6YgHywtpCS2z7RYi80s+2s6o90iQB8SjL1M=
+  file: icaro/dist/*.rpm
+  on:
+    repo: gsanchietti/icaro
+
