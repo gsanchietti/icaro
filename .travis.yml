@@ -42,4 +42,5 @@ deploy:
   skip_cleanup: true
   on:
     repo: gsanchietti/icaro
+    tags: true
 
